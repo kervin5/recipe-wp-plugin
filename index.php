@@ -9,7 +9,7 @@
  */
 
 if(!function_exists('add_action')) {
-    die("You shouldn't be calling me directly my friend.");
+    die("You shouldn't be calling me directly, my friend.");
 }
 
 //Setup
