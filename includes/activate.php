@@ -7,7 +7,7 @@ function r_activate_plugin(){
     global $wpdb;
 
     $createSQL = '
-	CREATE TABLE `'.$wpdb->prefix.'_recipe_ratings` (
+	CREATE TABLE `'.$wpdb->prefix.'recipe_ratings` (
 		`ID` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
 		`recipe_id` BIGINT(20) UNSIGNED NOT NULL,
 		`rating` FLOAT(3,2) UNSIGNED NOT NULL,

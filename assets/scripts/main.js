@@ -8,8 +8,8 @@ jQuery(function($){
             rating: $(this).rateit('value')
         };
 
-        $.post(recipe_obj.ajaxurl, form, function () {
-
+        $.post(recipe_obj.ajax_url, form, function (data) {
+            console.log(data);
         });
     });
 });
