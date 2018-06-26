@@ -42,4 +42,35 @@ jQuery(function($){
             }
         })
     });
+
+    $("#register-form").on("submit",function (e) {
+
+        e.preventDefault();
+
+        $("#register-status").html("<div class='alert alert-info'>Please wait while your account is being created.</div>");
+
+        $(this).hide();
+
+        var form = {
+            action: "recipe_create_account",
+            name:   $("#register-form-name").val(),
+            username:   $("#register-form-username").val(),
+            email:  $("#register-form-email").val(),
+            pass:   $("#register-form-password").val(),
+            confirm_pass:   $("#register-form-repassword").val(),
+            _wpnonce: $("#_wpnonce").val()
+        };
+        
+        $.post(recipe_obj.ajax_url,form).always(function (response) {
+            if(response.status == 2){
+                $("#register-status").html("<div class='alert alert-success'>Account created!</div>");
+                location.href = recipe_obj.home_url;
+            }else {
+                $("#register-status").html( '<div class="alert alert-danger">'+
+                    'Unable to create an account. Please try again with a different username/email.'+
+                '</div>');
+            }
+            $("#register-form").show();
+        });
+    });
 });
