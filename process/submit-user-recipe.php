@@ -32,7 +32,11 @@ function r_submit_user_recipe()
 
 	update_post_meta($post_id,'recipe_data',$recipe_data);
 
+	do_action('recipe_rated',array(
+		'post_id'   =>$post_id,
+		'rating'    => $rating,
+		'user_ip'   =>$user_ip
+	));
 	$output['status'] = 2;
-
 	wp_send_json($output);
 }
