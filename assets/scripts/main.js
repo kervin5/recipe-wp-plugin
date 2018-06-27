@@ -66,11 +66,42 @@ jQuery(function($){
                 $("#register-status").html("<div class='alert alert-success'>Account created!</div>");
                 location.href = recipe_obj.home_url;
             }else {
+                console.log(response);
                 $("#register-status").html( '<div class="alert alert-danger">'+
                     'Unable to create an account. Please try again with a different username/email.'+
                 '</div>');
             }
             $("#register-form").show();
+        });
+    });
+
+    $("#login-form").on("submit",function (e) {
+
+        e.preventDefault();
+
+        $("#login-status").html("<div class='alert alert-info'>Please wait while we log you in.</div>");
+
+        $(this).hide();
+
+        var form = {
+            action: "recipe_user_login",
+            username:   $("#login-form-username").val(),
+            pass:   $("#login-form-password").val(),
+            _wpnonce: $("#_wpnonce").val()
+        };
+
+        $.post(recipe_obj.ajax_url,form).always(function (data) {
+            if(data.status == 2){
+
+                $("#login-status").html("<div class='alert alert-success'>Success!</div>");
+                location.href = recipe_obj.home_url;
+            }else {
+                console.log(data);
+                $("#login-status").html( '<div class="alert alert-danger">'+
+                    'Please try again with a different username/email.'+
+                '</div>');
+            }
+            $("#login-form").show();
         });
     });
 });

@@ -2,9 +2,10 @@
 
 function recipe_create_account(){
 	$output = ['status'=>1];
-	$nonce = isset($_POST['_nonce']) ? $_POST['_nonce'] : '';
+	$nonce = isset($_POST['_wpnonce']) ? $_POST['_wpnonce'] : '';
 
 	if(!wp_verify_nonce($nonce,'recipe_auth')){
+		$output['message'] = "nonce failed";
 		wp_send_json($output);
 	}
 
