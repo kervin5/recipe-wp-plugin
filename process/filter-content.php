@@ -25,14 +25,13 @@ function r_filter_recipe_content($content){
 
 	$user_IP = $_SERVER['REMOTE_ADDR'];
 
-	$rating_count = $wpdb->get_var(
-		"SELECT COUNT(*) FROM 	`".$wpdb->prefix."recipe_ratings` WHERE recipe_id ='".$post->ID."' AND user_ip='".$user_IP."'"
-	);
+	//PREPARED STATEMENT
+	$rating_count = $wpdb->get_var($wpdb->prepare(
+		"SELECT COUNT(*) FROM 	`".$wpdb->prefix."recipe_ratings` WHERE recipe_id =%d AND user_ip=%s"
+		,$post->ID,$user_IP));
 
 	if($rating_count>0){
 		$recipe_html = str_replace("READONLY_PLACEHOLDER","data-rateit-readonly=true",$recipe_html);
-	} else {
-
 	}
 
 	return $recipe_html.$content;
