@@ -6,7 +6,13 @@ function r_filter_recipe_content($content){
 
 	global $post,$wpdb;
 
-	$recipe_html = file_get_contents('recipe-template.php',true);
+	//CONSUME HTTP from 3rd parties
+	$recipe_tpl_res = wp_remote_get(
+		plugins_url('process/recipe-template.php',RECIPE_PLUGIN_URL)
+	);
+
+//	$recipe_html = file_get_contents('recipe-template.php',true);
+	$recipe_html = wp_remote_retrieve_body($recipe_tpl_res);
 	$recipe_data = get_post_meta($post->ID,'recipe_data',true);
 	$recipe_html = str_replace('INGREDIENTS_PH',$recipe_data['ingredients'],$recipe_html);
 	$recipe_html = str_replace('COOKING_TIME_PH',$recipe_data['time'],$recipe_html);
