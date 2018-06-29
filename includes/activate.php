@@ -4,6 +4,10 @@ function r_activate_plugin(){
         wp_die('You must update WordPress to use this plugin','recipe');
     }
 
+    recipe_init();
+    //IMPORTANT FOR CUSTOM POST TYPES REWRITE RULES
+    flush_rewrite_rules();
+
     global $wpdb;
 
     $createSQL = '
