@@ -32,6 +32,7 @@ include('process/submit-user-recipe.php');
 include('includes/shortcodes/recipe-auth.php');
 include('process/create-account.php');
 include('process/login.php');
+include('includes/admin/dashboard-widgets.php');
 
 // Hooks
 register_activation_hook(__FILE__,'r_activate_plugin');
@@ -49,6 +50,8 @@ add_action('wp_ajax_r_submit_user_recipe','r_submit_user_recipe');
 add_action('wp_ajax_nopriv_r_submit_user_recipe','r_submit_user_recipe');
 add_action('wp_ajax_nopriv_recipe_create_account','recipe_create_account');
 add_action('wp_ajax_nopriv_recipe_user_login','recipe_user_login');
+add_action('wp_dashboard_setup','r_add_dashboard_widgets');
+
 // Shortcodes
 add_shortcode('recipe_creator','r_recipe_creator_shortcode');
 add_shortcode('recipe_auth_form','r_recipe_auth_form_shortcode');
