@@ -1,5 +1,6 @@
 <?php
 
+//Custom recipe post
 function recipe_init(){
     $labels = array(
         'name'               => __( 'Recipes', 'recipe' ),
@@ -36,4 +37,13 @@ function recipe_init(){
     );
 
     register_post_type( 'recipe', $args );
+
+    register_taxonomy(
+    	'origin',
+	    'recipe',
+	    [
+	    	'label' => __('Origin','recipe'),
+		    'rewrite'=> ['slug' => 'origin']
+	    ]
+    );
 }

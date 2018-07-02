@@ -55,6 +55,7 @@ add_action('wp_ajax_nopriv_recipe_create_account','recipe_create_account');
 add_action('wp_ajax_nopriv_recipe_user_login','recipe_user_login');
 add_action('wp_dashboard_setup','r_add_dashboard_widgets');
 add_action('admin_menu','r_admin_menus');
+add_action('origin_add_form_fields','r_origin_add_form_fields');
 
 // Shortcodes
 add_shortcode('recipe_creator','r_recipe_creator_shortcode');
