@@ -4,6 +4,7 @@
 	<li><strong>UTENSILS_I18N: </strong> UTENSILS_PH</li>
 	<li><strong>LEVEL_I18N: </strong> LEVEL_PH</li>
 	<li><strong>TYPE_I18N: </strong> TYPE_PH</li>
+	<li><strong>ORIGIN_I18N: </strong> ORIGIN_PH MORE_INFO_URL_PH</li>
 	<li>
 		<strong>RATE_I18N: </strong>
 		<div id="recipe_rating" class="rateit" data-rateit-resetable="false" data-rid="RECIPE_ID" data-rateit-value="RECIPE_RATING" READONLY_PLACEHOLDER></div>
