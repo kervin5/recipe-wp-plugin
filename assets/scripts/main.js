@@ -13,6 +13,25 @@ jQuery(function($){
         });
     });
 
+    var featured_frame = wp.media({
+        title: 'Select or Upload Media',
+        buton: {
+            text: 'Use this media'
+        },
+        multiple: false
+    });
+
+    $("#recipe-img-upload-btn").on('click',function (e) {
+        e.preventDefault();
+        featured_frame.open();
+    });
+    
+    featured_frame.on('select',function () {
+        var attachment = featured_frame.state().get('selection').first().toJSON();
+        $("#recipe-img-preview").attr('src',attachment.url);
+        $("#r_inputImgID").val(attachment.id);
+    });
+
     $("#recipe-form").on("submit",function (e) {
         e.preventDefault();
 
@@ -28,7 +47,8 @@ jQuery(function($){
             time: $("#r_inputTime").val(),
             utensils: $("#r_inputUtensils").val(),
             level: $("#r_inputLevel").val(),
-            meal_type: $("#r_inputMealType").val()
+            meal_type: $("#r_inputMealType").val(),
+            attachment_id : $("#r_inputImgID").val()
         };
 
         console.log(form);

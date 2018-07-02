@@ -26,6 +26,7 @@ function r_enqueue_scripts() {
 		'home_url'  =>home_url('/')
 	));
 
+	wp_enqueue_media();
 	wp_enqueue_script('r_rateit');
 	wp_enqueue_script('r_main');
 }

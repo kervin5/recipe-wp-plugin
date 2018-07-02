@@ -31,6 +31,12 @@
 		<label>Meal Type</label>
 		<input type="text" class="form-control" id="r_inputMealType">
 	</div>
+    <div class="form-group">
+        <label>Featured Image <a href="#" id="recipe-img-upload-btn">Upload</a></label>
+        <br>
+        <img id="recipe-img-preview">
+        <input type="hidden" id="r_inputImgID">
+    </div>
 	<div class="form-group">
 		<button type="submit" class="btn btn-primary">Submit Recipe</button>
 	</div>

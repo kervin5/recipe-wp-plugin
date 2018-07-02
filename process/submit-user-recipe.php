@@ -32,6 +32,11 @@ function r_submit_user_recipe()
 
 	update_post_meta($post_id,'recipe_data',$recipe_data);
 
+	if(isset($_POST['attachment_id']) && !empty($_POST['attachment_id'])){
+		include_once(ABSPATH.'/wp-admin/includes/image.php');
+		set_post_thumbnail($post_id,absint($_POST['attachment_id']));
+	}
+
 	do_action('recipe_rated',array(
 		'post_id'   =>$post_id,
 		'rating'    => $rating,
