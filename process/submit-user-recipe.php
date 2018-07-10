@@ -14,7 +14,7 @@ function r_submit_user_recipe()
 	$title = sanitize_text_field($_POST['title']);
 	$content = wp_kses_post($_POST['content']);
 	$recipe_data = [];
-	$recipe_data['ingredients'] = sanitize_text_field($_POST['ingredients']);
+	$recipe_data['ingredients'] = wp_trim_words(sanitize_text_field($_POST['ingredients']),20,'');
 	$recipe_data['time'] = sanitize_text_field($_POST['time']);
 	$recipe_data['utensils'] = sanitize_text_field($_POST['utensils']);
 	$recipe_data['level'] = sanitize_text_field($_POST['level']);
