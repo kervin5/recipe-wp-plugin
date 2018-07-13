@@ -19,6 +19,7 @@ function r_submit_user_recipe()
 	$recipe_data['utensils'] = sanitize_text_field($_POST['utensils']);
 	$recipe_data['level'] = sanitize_text_field($_POST['level']);
 	$recipe_data['meal_type'] = sanitize_text_field($_POST['meal_type']);
+	$recipe_data['video_url'] = esc_url_raw($_POST['video_url']);
 	$recipe_data['rating'] = 0;
 	$recipe_data['rating_count'] = 0;
 

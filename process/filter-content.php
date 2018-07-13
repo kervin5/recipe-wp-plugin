@@ -18,6 +18,8 @@ function r_filter_recipe_content($content){
 
 	$more_info_url = isset($origin[0]) ? get_term_meta($origin[0]->term_id,'more_info_url',true) : '';
 
+	$video = wp_oembed_get($recipe_data['video_url']);
+
 	$recipe_html = str_replace('INGREDIENTS_PH',$recipe_data['ingredients'],$recipe_html);
 	$recipe_html = str_replace('COOKING_TIME_PH',$recipe_data['time'],$recipe_html);
 	$recipe_html = str_replace('UTENSILS_PH',$recipe_data['utensils'],$recipe_html);
@@ -34,6 +36,7 @@ function r_filter_recipe_content($content){
 	$recipe_html = str_replace("RECIPE_RATING",$recipe_data['rating'],$recipe_html);
 	$recipe_html = str_replace("ORIGIN_I18N",__("Origin","recipe"),$recipe_html);
 	$recipe_html = str_replace("ORIGIN_PH",isset($origin[0]) ? $origin[0]->name : 'none',$recipe_html);
+	$recipe_html = str_replace("VIDEO_PH",$video,$recipe_html);
 
 	if(!empty($more_info_url)){
 		$recipe_html = str_replace("MORE_INFO_URL_PH",'<a href="'.$more_info_url.'">More Info<a>',$recipe_html);

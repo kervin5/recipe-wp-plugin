@@ -7,11 +7,16 @@
 			"time"=> "",
 			"utensils" => "",
 			"level" => "Beginner",
-			"meal_type" => ""
+			"meal_type" => "",
+            "video_url" => ""
 		);
 	}
 	?>
 
+    <div class="form-group">
+        <label>Video URL</label>
+        <input type="text" class="form-control" name="r_inputVideoURL" value="<?php echo $recipe_data['video_url']; ?>">
+    </div>
 	<div class="form-group">
 		<label>Ingredients</label>
 		<input type="text" class="form-control" name="r_inputIngredients" value="<?php echo $recipe_data['ingredients']?>">

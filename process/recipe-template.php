@@ -1,3 +1,4 @@
+VIDEO_PH
 <ul class="list-unstyled">
 	<li><strong>INGREDIENTS_I18N: </strong> INGREDIENTS_PH</li>
 	<li><strong>COOKING_TIME_I18N: </strong> COOKING_TIME_PH</li>
